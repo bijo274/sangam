@@ -1,0 +1,29 @@
+name: sangam
+description: A new Flutter project.
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^0.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+    fonts:
+      - family: CaviarDreams
+        fonts:
+          - asset: assets/CaviarDreams.ttf
+      - family: Raleway
+        fonts:
+          - asset: assets/Raleway-Light.ttf
+      - family: Roboto
+        fonts:
+          - asset: assets/Roboto-Regular.ttf
+      - family: cupertino
+        fonts:
+          - asset: assets/CupertinoIcons.ttf
+
+uses-material-design: true
