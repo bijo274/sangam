@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sangam/Home.dart';
+import 'package:sangam/AppBar.dart';
 
 void main() => runApp(new MyApp());
 
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'Roboto'
       ),
-      home: new MyHomePage(title: 'Sangam'),
+      home: new MyAppBar(title: 'Sangam'),
     );
   }
 }
