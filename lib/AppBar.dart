@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:sangam/CustomPlayer.dart';
 
@@ -13,6 +14,11 @@ class MyAppBar extends StatefulWidget {
 class _MyAppBarState extends State<MyAppBar> {
   @override
   Widget build(BuildContext context) {
+    bool onTapped;
+    Widget dropDownMenu = new Semantics(
+      enabled: onTapped,
+      child: new DropDownMenu(),
+    );
     return new Scaffold(
       appBar: new AppBar(
         title: new Text(
@@ -34,29 +40,36 @@ class _MyAppBarState extends State<MyAppBar> {
           new IconButton(
               icon: const Icon(const IconData(0xf397, fontFamily: 'cupertino')),
               color: Colors.blue,
-              onPressed: OptionDialog)
+              tooltip: 'List of Playback options',
+              onPressed: () {
+                setState(() {
+                  onTapped = true;
+                  new DropDownMenu();
+                });
+              })
         ],
       ),
       body:
           new CustomPlayer(), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+}
 
-  void OptionDialog() {
-    List<String> options = <String>[
-      'Add to playlist',
-      'Go to artist',
-      'Go to album',
-      'clear queue',
-      'Save queue'
-    ];
+class DropDownMenu extends StatefulWidget {
+  CustomDropDown createState() => new CustomDropDown();
+}
+
+class CustomDropDown extends State<DropDownMenu> {
+  @override
+  Widget build(BuildContext context) {
+    debugPrint("Executed!!!");
     new ListView(
       children: <Widget>[
-        new Text("Heeloo"),
-        new Text("Heeloo2"),
-        new Text("Heeloo3"),
-        new Text("Heeloo4")
+        new Icon(IconData(0xf395, fontFamily: 'cupertino'), color: Colors.blue),
+        new Icon(IconData(0xf398, fontFamily: 'cupertino'), color: Colors.blue),
+        new Icon(IconData(0xf399, fontFamily: 'cupertino'), color: Colors.blue)
       ],
     );
+    // TODO: implement build
   }
 }
